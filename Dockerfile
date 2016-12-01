@@ -23,6 +23,7 @@ MAINTAINER Rich Nason rnason@appcontainers.com
 
 ENV TERMTAG nginx
 ENV ENV dev
+ENV SITE_NAME nginx.local
 
 ###########################################################
 #**************  ADD REQUIRED APP FILES  ******************
@@ -63,7 +64,8 @@ ansible-playbook nginx.yml
 #*************  CONFIGURE START ITEMS  ********************
 ###########################################################
 
-CMD /bin/bash -c "service nginx stop && /usr/sbin/nginx -g 'daemon off;'"
+WORKDIR /etc/ansible/roles/clusterfrak.nginx/files
+CMD /bin/bash -c "ansible-playbook nginx-reconfig.yml && service nginx stop && /usr/sbin/nginx -g 'daemon off;'"
 
 ###########################################################
 #************  EXPOSE APPLICATION PORTS  ******************
