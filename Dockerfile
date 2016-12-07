@@ -1,13 +1,13 @@
 ###########################################################
 # Dockerfile to build nginx Service Base Container
-# Based on: appcontainers/centos:6 (6.8)
-# DATE: 11/29/2016
+# Based on: appcontainers/centos:7 (7.2)
+# DATE: 12/7/2016
 # COPYRIGHT: Appcontainers.com
 ###########################################################
 
 # Set the base image in namespace/repo format. 
 # To use repos that are not on the docker hub use the example.com/namespace/repo format.
-FROM appcontainers/centos:6
+FROM appcontainers/centos:7
 
 # File Author / Maintainer
 MAINTAINER Rich Nason rnason@appcontainers.com
